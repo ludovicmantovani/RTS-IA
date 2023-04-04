@@ -5,16 +5,9 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [Header("Units")]
-    public List<Unit> units = new List<Unit>();
-    void Start()
-    {
-        
-    }
+    [SerializeField] private List<Unit> units = new List<Unit>();
 
-    void Update()
-    {
-        
-    }
+    public List<Unit> Units { get => units;}
 
     // is this my unit?
     public bool IsMyUnit(Unit unit)

@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class UnitSelection : MonoBehaviour
 {
-    public LayerMask unitLayerMask;
+    [SerializeField] private LayerMask unitLayerMask;
+    [SerializeField] private RectTransform selectionBox;
+
     private List<Unit> selectedUnits = new List<Unit>();
+    private Vector2 startPos;
 
     private Camera cam;
     private Player player;
@@ -15,11 +18,6 @@ public class UnitSelection : MonoBehaviour
         player = GetComponent<Player>();
     }
 
-    void Start()
-    {
-        
-    }
-
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -27,8 +25,47 @@ public class UnitSelection : MonoBehaviour
             ToggleSelectionVisual(false);
             selectedUnits = new List<Unit>();
             TrySelect(Input.mousePosition);
+            startPos = Input.mousePosition;
         }
 
+        // mouse up
+        if (Input.GetMouseButtonUp(0))
+        {
+            ReleaseSelectionBox();
+        }
+        // mouse held down
+        if (Input.GetMouseButton(0))
+        {
+            UpdateSelectionBox(Input.mousePosition);
+        }
+    }
+    // called when we release the selection box
+    void ReleaseSelectionBox()
+    {
+        selectionBox.gameObject.SetActive(false);
+        Vector2 min = selectionBox.anchoredPosition - (selectionBox.sizeDelta / 2);
+        Vector2 max = selectionBox.anchoredPosition + (selectionBox.sizeDelta / 2);
+        foreach (Unit unit in player.Units)
+        {
+            Vector3 screenPos = cam.WorldToScreenPoint(unit.transform.position);
+
+            if (screenPos.x > min.x && screenPos.x < max.x && screenPos.y > min.y && screenPos.y < max.y)
+ {
+                selectedUnits.Add(unit);
+                unit.ToggleSelectionVisual(true);
+            }
+        }
+    }
+
+    // called when we are creating a selection box
+    void UpdateSelectionBox(Vector2 curMousePos)
+    {
+        if (!selectionBox.gameObject.activeInHierarchy)
+            selectionBox.gameObject.SetActive(true);
+        float width = curMousePos.x - startPos.x;
+        float height = curMousePos.y - startPos.y;
+        selectionBox.sizeDelta = new Vector2(Mathf.Abs(width), Mathf.Abs(height));
+        selectionBox.anchoredPosition = startPos + new Vector2(width / 2, height / 2);
     }
 
     // called when we click on a unit
