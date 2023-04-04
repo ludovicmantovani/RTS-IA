@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Unit : MonoBehaviour
 {
+    [Header("Components")]
+    public GameObject selectionVisual;
+
     void Start()
     {
         
@@ -13,4 +16,10 @@ public class Unit : MonoBehaviour
     {
         
     }
+
+    public void ToggleSelectionVisual(bool selected)
+    {
+        selectionVisual.SetActive(selected);
+    }
+
 }
