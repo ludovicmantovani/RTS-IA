@@ -1,18 +1,41 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class UnitCommander : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private LayerMask layerMask;
+
+    private UnitSelection _unitSelection;
+    private Camera _cam;
+
+    void Awake()
     {
-        
+        _unitSelection = GetComponent<UnitSelection>();
+        _cam = Camera.main;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetMouseButtonDown(1) && _unitSelection.HasUnitsSelected())
+        {
+            Ray ray = _cam.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            Unit[] selectedUnits = _unitSelection.GetSelectedUnits();
+            if (Physics.Raycast(ray, out hit, 100, layerMask))
+            {
+                if (hit.collider.CompareTag("Ground"))
+                {
+                    UnitsMoveToPosition(hit.point, selectedUnits);
+                }
+            }
+        }
     }
+
+    private void UnitsMoveToPosition(Vector3 movePos, Unit[] units)
+    {
+        for (int x = 0; x < units.Length; x++)
+        {
+            units[x].MoveToPosition(movePos);
+        }
+    }
+
 }

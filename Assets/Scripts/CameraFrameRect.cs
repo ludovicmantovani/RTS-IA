@@ -32,7 +32,7 @@ public class CameraFrameRect : MonoBehaviour
        
     }
 
-    private void Cast(Ray ray)()
+    private void Cast(Ray ray)
     {
         Vector3 vec = Vector3.zero;
         RaycastHit hit;
