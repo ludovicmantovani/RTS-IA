@@ -100,7 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1663826799}
   movementThreshold: 0.001
-  walkAnimationSpeed: 50
+  walkAnimationSpeed: 25
 --- !u!1 &2203917821747741709
 GameObject:
   m_ObjectHideFlags: 0

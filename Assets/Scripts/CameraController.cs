@@ -12,7 +12,7 @@ public class CameraController : MonoBehaviour
         horizontal = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
 
-        Vector3 direction = new Vector3(horizontal, vertical, 0);
+        Vector3 direction = new Vector3(horizontal, 0, vertical);
         direction.Normalize();
 
         transform.Translate(direction * speed * Time.deltaTime);
