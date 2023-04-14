@@ -21,4 +21,4 @@ MonoBehaviour:
   - number: 1
     item:
       itemName: Rover
-  canGiveRewards: 1
+  canGiveRewards: 0

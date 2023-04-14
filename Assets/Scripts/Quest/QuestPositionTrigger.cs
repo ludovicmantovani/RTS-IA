@@ -1,3 +1,4 @@
+using Gameplay.Quests;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -5,15 +6,13 @@ using UnityEngine;
 
 public class QuestPositionTrigger : MonoBehaviour
 {
+    [SerializeField] private QuestCompletion questCompletion = null;
+    
     [SerializeField] private Vector3 targetPosition = Vector3.zero;
     [SerializeField] private float toleranceDistance = 10f;
 
     private bool _isFind = false;
     private float _distance = 0f;
-
-    public delegate void OnChangeEvent(GameObject go);
-    public event OnChangeEvent OnChange;
-
 
     private void Start()
     {
@@ -25,9 +24,9 @@ public class QuestPositionTrigger : MonoBehaviour
         if (!_isFind)
         {
             _isFind = FindDistanceToTarget() <= toleranceDistance;
-            if (_isFind && OnChange != null)
+            if (_isFind)
             {
-                OnChange(gameObject);
+                questCompletion.CompleteObjective();
             }
         }
     }
