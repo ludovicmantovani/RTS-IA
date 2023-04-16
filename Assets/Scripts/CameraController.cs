@@ -9,29 +9,32 @@ public class CameraController : MonoBehaviour
     [SerializeField] private float smoothTime = 0.5f;
     
     [Header("Translation")]
-    [SerializeField] private float minXPosition = 12f;
-    [SerializeField] private float maxXPosition = 95f;
-    [SerializeField] private float minZPosition = -2f;
-    [SerializeField] private float maxZPosition = 88f;
-    
+    [SerializeField] private Vector2 minBounds;
+    [SerializeField] private Vector2 maxBounds;
+
     [Header("Zoom")]
     [SerializeField] private float minYScroll = 15f;
     [SerializeField] private float maxYScroll = 80f;
     
-    private bool canZoom = true;
-    private Vector3 velocity;
-    private float targetZoom;
+    private bool _canZoom = true;
+    private Vector3 _velocity;
+    private float _targetZoom;
+    private bool _canMoveByUser = true;
 
-    public bool CanZoom { get => canZoom; set => canZoom = value; }
+    public bool CanZoom { get => _canZoom; set => _canZoom = value; }
+    public bool CanMoveByUser { get => _canMoveByUser; set => _canMoveByUser = value; }
 
     void Start()
     {
-        targetZoom = transform.position.y;
+        _targetZoom = transform.position.y;
     }
 
     void Update()
     {
-        Locomotion();
+        if (_canMoveByUser)
+        {
+            Locomotion();
+        }
     }
 
     private void Locomotion()
@@ -39,17 +42,40 @@ public class CameraController : MonoBehaviour
         // Déplacement de la caméra
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
-        Vector3 targetPosition = transform.position + new Vector3(horizontal, 0, vertical) * moveSpeed * Time.deltaTime;
-        transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, smoothTime);
+        Vector3 targetPosition = transform.position + moveSpeed * Time.deltaTime * new Vector3(horizontal, 0, vertical);
+        targetPosition.x = Mathf.Clamp(targetPosition.x, minBounds.x, maxBounds.x);
+        targetPosition.z = Mathf.Clamp(targetPosition.z, minBounds.y, maxBounds.y);
+        transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref _velocity, smoothTime);
 
-        if (canZoom)
+        if (_canZoom)
         {
             // Zoom de la caméra
             float scroll = Input.GetAxis("Mouse ScrollWheel");
-            targetZoom -= scroll * scrollSpeed * 1000 * Time.deltaTime;
-            targetZoom = Mathf.Clamp(targetZoom, minYScroll, maxYScroll);
-            float currentZoom = Mathf.SmoothDamp(transform.position.y, targetZoom, ref velocity.y, smoothTime);
+            _targetZoom -= scroll * scrollSpeed * 1000 * Time.deltaTime;
+            _targetZoom = Mathf.Clamp(_targetZoom, minYScroll, maxYScroll);
+            float currentZoom = Mathf.SmoothDamp(transform.position.y, _targetZoom, ref _velocity.y, smoothTime);
             transform.position = new Vector3(transform.position.x, currentZoom, transform.position.z);
         }
+    }
+
+    public void SmoothMoveCamera(Vector3 targetPosition, float targetZoom)
+    {
+        _canMoveByUser = false;
+        targetPosition.x = Mathf.Clamp(targetPosition.x, minBounds.x, maxBounds.x);
+        targetPosition.z = Mathf.Clamp(targetPosition.z, minBounds.y, maxBounds.y);
+        targetZoom = Mathf.Clamp(targetZoom, minYScroll, maxYScroll);
+        Vector3 currentVelocity = Vector3.zero;
+        float currentZoom = transform.position.y;
+        while (Vector3.Distance(transform.position, targetPosition) > 0.1f || Mathf.Abs(currentZoom - targetZoom) > 0.1f)
+        {
+            transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref currentVelocity, smoothTime);
+            currentZoom = Mathf.SmoothDamp(currentZoom, targetZoom, ref _velocity.y, smoothTime);
+            transform.position = new Vector3(transform.position.x, currentZoom, transform.position.z);
+            if (Vector3.Distance(transform.position, targetPosition) <= 0.1f && Mathf.Abs(currentZoom - targetZoom) <= 0.1f)
+            {
+                break;
+            }
+        }
+        _canMoveByUser = true;
     }
 }
