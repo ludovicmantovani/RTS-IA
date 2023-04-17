@@ -11,7 +11,7 @@ public class CameraFrameRect : MonoBehaviour
     [SerializeField] private Terrain terrain;
     [SerializeField] private String layer;
     [SerializeField] private UILineRenderer uILineRenderer;
-    [SerializeField] private bool showDebug = true;
+    [SerializeField] private bool showDebug = false;
     [SerializeField] private float maxDistance = 100;
     
     private Vector3 pos = Vector3.zero;
@@ -64,7 +64,6 @@ public class CameraFrameRect : MonoBehaviour
         Vector3 vec = Vector3.zero;
         Vector2 ret = Vector2.zero;
         int nbLayer = 1 << LayerMask.NameToLayer(layer);
-        print(nbLayer);
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, maxDistance, nbLayer))
         {
