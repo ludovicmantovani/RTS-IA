@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -6,6 +7,7 @@ public class Unit : MonoBehaviour
     [SerializeField] private GameObject selectionVisual;
 
     private NavMeshAgent _navAgent = null;
+    private Player _player = null;
 
     void Awake()
     {
@@ -23,4 +25,14 @@ public class Unit : MonoBehaviour
         _navAgent.SetDestination(pos);
     }
 
+    public void SetPlayer(Player player)
+    {
+        _player = player;
+        SetColor(player.PlayerColor);
+    }
+
+    private void SetColor(Color playerColor)
+    {
+        throw new NotImplementedException();
+    }
 }
