@@ -35,7 +35,7 @@ public class UnitCommander : MonoBehaviour
         Vector3[] destinations = UnitMover.GetUnitGroupDestinations(movePos, units.Length, 2);
         for (int x = 0; x < units.Length; x++)
         {
-            units[x].MoveToPosition(destinations[x]);
+            units[x].GetComponent<UnitController>().MoveToPosition(destinations[x]);
         }
     }
 

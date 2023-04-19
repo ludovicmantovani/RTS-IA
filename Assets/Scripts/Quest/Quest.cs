@@ -1,3 +1,4 @@
+using Inventory.Item;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -16,16 +17,12 @@ namespace Gameplay.Quests
         public bool CanGiveRewards { get => canGiveRewards;}
 
         [System.Serializable]
-        public class Item
-        {
-            public string itemName;
-        }
-        [System.Serializable]
         public class Reward
         {
             [Min(1)]
             public int number;
-            public Item item;
+            public UnitTemplate unitTemplate;
+            public Vector3 spawnPoint;
         }
 
         [System.Serializable]

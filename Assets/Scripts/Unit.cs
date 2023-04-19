@@ -1,38 +1,18 @@
-using System;
+using Inventory.Item;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class Unit : MonoBehaviour
 {
-    [SerializeField] private GameObject selectionVisual;
+    private float _pv;
+    private float _shield;
+    private float _damage;
 
-    private NavMeshAgent _navAgent = null;
-    private Player _player = null;
-
-    void Awake()
+    public void SetData(UnitTemplate unitTemplate)
     {
-        _navAgent = GetComponent<NavMeshAgent>();
-    }
-
-    public void ToggleSelectionVisual(bool selected)
-    {
-        selectionVisual.SetActive(selected);
-    }
-
-    public void MoveToPosition(Vector3 pos)
-    {
-        _navAgent.isStopped = false;
-        _navAgent.SetDestination(pos);
-    }
-
-    public void SetPlayer(Player player)
-    {
-        _player = player;
-        SetColor(player.PlayerColor);
-    }
-
-    private void SetColor(Color playerColor)
-    {
-        throw new NotImplementedException();
+        _pv = unitTemplate.Pv;
+        _shield = unitTemplate.Shield;
+        _damage = unitTemplate.Damage;
     }
 }

@@ -1,4 +1,5 @@
 using Gameplay.UI.Quests;
+using Inventory.Inventory;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -8,15 +9,7 @@ namespace Gameplay.Quests
 {
     public class QuestList : MonoBehaviour
     {
-        public class PlayerInventory
-        {
-            public void AddItemToInventory(Quest.Item item)
-            {
-                print("Ajout item dans unventaire");
-            }
-        }
-
-        [SerializeField] private PlayerInventory playerInventory = null;
+        [SerializeField] private InventorySystem inventory = null;
         [SerializeField] private QuestTooltipUI questTooltipUI = null;
         private List<QuestStatus> _statuses = new List<QuestStatus>();
 
@@ -73,7 +66,7 @@ namespace Gameplay.Quests
             {
                 for (int i = 0; i < reward.number; i++)
                 {
-                    playerInventory.AddItemToInventory(reward.item);
+                    inventory.AddUnit(reward.unitTemplate, reward.spawnPoint);
                 }
             }
         }

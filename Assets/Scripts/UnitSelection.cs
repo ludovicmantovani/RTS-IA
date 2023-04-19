@@ -1,3 +1,4 @@
+using Inventory.Inventory;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,12 +12,12 @@ public class UnitSelection : MonoBehaviour
     private Vector2 _startPos;
 
     private Camera _cam;
-    private Player _player;
+    private InventorySystem _inventory;
     
     void Awake()
     {
         _cam = Camera.main;
-        _player = GetComponent<Player>();
+        _inventory = GetComponent<InventorySystem>();
     }
 
     void Update()
@@ -45,14 +46,14 @@ public class UnitSelection : MonoBehaviour
         selectionBox.gameObject.SetActive(false);
         Vector2 min = selectionBox.anchoredPosition - (selectionBox.sizeDelta / 2);
         Vector2 max = selectionBox.anchoredPosition + (selectionBox.sizeDelta / 2);
-        foreach (Unit unit in _player.Units)
+        foreach (Unit unit in _inventory.Units)
         {
             Vector3 screenPos = _cam.WorldToScreenPoint(unit.transform.position);
 
             if (screenPos.x > min.x && screenPos.x < max.x && screenPos.y > min.y && screenPos.y < max.y)
  {
                 _selectedUnits.Add(unit);
-                unit.ToggleSelectionVisual(true);
+                unit.GetComponent<UnitController>().ToggleSelectionVisual(true);
             }
         }
     }
@@ -74,10 +75,10 @@ public class UnitSelection : MonoBehaviour
         if (Physics.Raycast(ray, out hit, 100, unitLayerMask))
         {
             Unit unit = hit.collider.GetComponent<Unit>();
-            if (_player.IsMyUnit(unit))
+            if (_inventory.IsMyUnit(unit))
             {
                 _selectedUnits.Add(unit);
-                unit.ToggleSelectionVisual(true);
+                unit.GetComponent<UnitController>().ToggleSelectionVisual(true);
             }
         }
     }
@@ -86,7 +87,7 @@ public class UnitSelection : MonoBehaviour
     {
         foreach (Unit unit in _selectedUnits)
         {
-            unit.ToggleSelectionVisual(selected);
+            unit.GetComponent<UnitController>().ToggleSelectionVisual(selected);
         }
     }
 

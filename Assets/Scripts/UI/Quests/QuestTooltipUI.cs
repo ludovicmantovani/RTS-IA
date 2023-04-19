@@ -44,7 +44,7 @@ namespace Gameplay.UI.Quests
                     rewardText += ", ";
                 if (reward.number > 1)
                     rewardText += reward.number + " ";
-                rewardText += reward.item.itemName;
+                rewardText += reward.unitTemplate.DisplayName;
             }
             return rewardText;
         }

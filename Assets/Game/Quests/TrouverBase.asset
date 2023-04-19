@@ -19,6 +19,6 @@ MonoBehaviour:
       de trouver la base"
   rewards:
   - number: 1
-    item:
-      itemName: Rover
-  canGiveRewards: 0
+    unitTemplate: {fileID: 11400000, guid: 7ea5449815b49e043a7ab8696182f83f, type: 2}
+    spawnPoint: {x: 21, y: 0, z: 48}
+  canGiveRewards: 1
