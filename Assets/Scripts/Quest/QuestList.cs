@@ -33,9 +33,20 @@ namespace Gameplay.Quests
             if (status.IsComplete())
             {
                 GiveReward(quest);
+                foreach (QuestStatus questStatus in _statuses)
+                {
+                    if (!questStatus.IsComplete())
+                    {
+                        status = questStatus;
+                        break;
+                    }
+                }
+
             }
+
             if (questTooltipUI != null)
                 questTooltipUI.Setup(status);
+
             if (onUpdate != null)
                 onUpdate();
         }
@@ -68,7 +79,7 @@ namespace Gameplay.Quests
                 {
                     inventory.AddUnit(reward.unitTemplate, reward.spawnPoint);
                 }
-            }                
+            }
         }
     }
 }

@@ -1,3 +1,4 @@
+using Gameplay.Quests;
 using System;
 using UnityEngine;
 using UnityEngine.AI;
@@ -17,6 +18,11 @@ public class UnitController : MonoBehaviour
     public void ToggleSelectionVisual(bool selected)
     {
         selectionVisual.SetActive(selected);
+        QuestCompletion questCompletion = null;
+        if (TryGetComponent<QuestCompletion>(out questCompletion))
+        {
+            questCompletion.CompleteObjective();
+        }
     }
 
     public void MoveToPosition(Vector3 pos)
