@@ -68,7 +68,7 @@ namespace Gameplay.Quests
                 {
                     inventory.AddUnit(reward.unitTemplate, reward.spawnPoint);
                 }
-            }
+            }                
         }
     }
 }

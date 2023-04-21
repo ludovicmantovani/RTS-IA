@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98fd486f1a299554e97dfd02beef05fc, type: 3}
+  m_Name: TrouverUnite
+  m_EditorClassIdentifier: 
+  titre: Rechercher robots fusiller
+  objectives:
+  - reference: SelectUniqueUnit
+    description: "S\xE9lectionnez votre unit\xE9 d'exploration par un clic gauche."
+  - reference: DeplacerUniqueUnit
+    description: "Une fois s\xE9l\xE9ctionn\xE9e, d\xE9placez votre unit\xE9 par
+      un clic droit sur le terrain."
+  - reference: TrouverGroupeUnit
+    description: Approchez-vous du groupe de robots fusillers pour les faires passer
+      sous vos ordres
+  rewards:
+  - number: 4
+    unitTemplate: {fileID: 11400000, guid: 7ea5449815b49e043a7ab8696182f83f, type: 2}
+    spawnPoint: {x: 0, y: 0, z: 0}
+  canGiveRewards: 0

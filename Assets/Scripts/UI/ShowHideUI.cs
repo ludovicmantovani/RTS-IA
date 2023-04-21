@@ -7,16 +7,11 @@ public class ShowHideUI : MonoBehaviour
     [SerializeField] private KeyCode toggleKey = KeyCode.Escape;
     [SerializeField] private GameObject uiContainer = null;
 
-    void Start()
-    {
-        uiContainer.SetActive(false);
-    }
-
     void Update()
     {
         if (Input.GetKeyDown(toggleKey))
         {
-            uiContainer.SetActive(true);
+            uiContainer.SetActive(!uiContainer.activeSelf);
         }
     }
 }

@@ -6,18 +6,22 @@ namespace Gameplay.Quests
 {
     public class QuestGiver : MonoBehaviour
     {
-        [SerializeField] private Quest quest;
+        [SerializeField] private List<Quest> quests = new List<Quest>();
         [SerializeField] private bool giveAtStart = false;
 
         private void Start()
         {
-            if (quest != null && giveAtStart)
+            if (quests != null && giveAtStart)
             {
-                GiveQuest();
+                foreach (Quest quest in quests)
+                {
+                    if (quest != null)
+                        GiveQuest(quest);
+                }
             }
         }
 
-        public void GiveQuest()
+        public void GiveQuest(Quest quest)
         {
             QuestList questList = GameObject.FindGameObjectWithTag("Player").GetComponent<QuestList>();
             questList.AddQuest(quest);

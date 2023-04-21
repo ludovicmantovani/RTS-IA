@@ -15,8 +15,9 @@ MonoBehaviour:
   titre: Chercher la base
   objectives:
   - reference: DeplacerCamera
-    description: "D\xE9placer la cam\xE9ra dans la carte avec les touches ZQSD affin
-      de trouver la base"
+    description: "D\xE9placez la cam\xE9ra dans la carte avec les touches ZQSD affin
+      de trouver la base.\nUtilisez la molette de la souris pour zoomer sur le b\xE2timent.\nVous
+      pouvez regarder la minimap pour vous localiser sur la carte."
   rewards:
   - number: 1
     unitTemplate: {fileID: 11400000, guid: 7ea5449815b49e043a7ab8696182f83f, type: 2}

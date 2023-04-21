@@ -29,7 +29,7 @@ namespace Gameplay.Quests
         public class Objective
         {
             public string reference;
-            public string description;
+            [TextArea] public string description;
         }
 
 
