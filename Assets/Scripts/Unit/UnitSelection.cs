@@ -53,7 +53,7 @@ public class UnitSelection : MonoBehaviour
             if (screenPos.x > min.x && screenPos.x < max.x && screenPos.y > min.y && screenPos.y < max.y)
  {
                 _selectedUnits.Add(unit);
-                unit.GetComponent<UnitController>().ToggleSelectionVisual(true);
+                unit.ToggleSelectionVisual(true);
             }
         }
     }
@@ -78,7 +78,18 @@ public class UnitSelection : MonoBehaviour
             if (_inventory.IsMyUnit(unit))
             {
                 _selectedUnits.Add(unit);
-                unit.GetComponent<UnitController>().ToggleSelectionVisual(true);
+                unit.ToggleSelectionVisual(true);
+            }
+        }
+    }
+
+    public void RemoveNullUnitsFromSelection()
+    {
+        for (int i = 0; i < _selectedUnits.Count; i++)
+        {
+            if (_selectedUnits[i] == null)
+            {
+                _selectedUnits.RemoveAt(i);
             }
         }
     }
@@ -87,7 +98,7 @@ public class UnitSelection : MonoBehaviour
     {
         foreach (Unit unit in _selectedUnits)
         {
-            unit.GetComponent<UnitController>().ToggleSelectionVisual(selected);
+            unit.ToggleSelectionVisual(selected);
         }
     }
 

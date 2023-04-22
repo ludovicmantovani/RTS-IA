@@ -1,3 +1,4 @@
+using Inventory.Inventory;
 using UnityEngine;
 
 public class UnitCommander : MonoBehaviour
@@ -17,6 +18,8 @@ public class UnitCommander : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(1) && _unitSelection.HasUnitsSelected())
         {
+            _unitSelection.RemoveNullUnitsFromSelection();
+
             Ray ray = _cam.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
             Unit[] selectedUnits = _unitSelection.GetSelectedUnits();
@@ -25,6 +28,14 @@ public class UnitCommander : MonoBehaviour
                 if (hit.collider.CompareTag("Ground"))
                 {
                     UnitsMoveToPosition(hit.point, selectedUnits);
+                }
+                else if (hit.collider.CompareTag("Unit"))
+                {
+                    Unit enemy = hit.collider.gameObject.GetComponent<Unit>();
+                    if (!InventorySystem.me.IsMyUnit(enemy))
+                    {
+                        UnitsAttackEnemy(enemy, selectedUnits);
+                    }
                 }
             }
         }
@@ -35,7 +46,15 @@ public class UnitCommander : MonoBehaviour
         Vector3[] destinations = UnitMover.GetUnitGroupDestinations(movePos, units.Length, 2);
         for (int x = 0; x < units.Length; x++)
         {
-            units[x].GetComponent<UnitController>().MoveToPosition(destinations[x]);
+            units[x].MoveToPosition(destinations[x]);
+        }
+    }
+
+    private void UnitsAttackEnemy(Unit target, Unit[] units)
+    {
+        foreach (Unit unit in units)
+        {
+            unit.AttackUnit(target);
         }
     }
 

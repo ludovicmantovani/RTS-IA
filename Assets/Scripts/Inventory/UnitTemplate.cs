@@ -9,14 +9,20 @@ namespace Inventory.Item
     {
         [SerializeField] private string displayName = null;
         [SerializeField] private GameObject prefab = null;
-        [SerializeField] private float pv = 100;
-        [SerializeField] private float shield = 0;
-        [SerializeField] private float damage = 0;
+        [SerializeField] private int pv = 15;
+        [SerializeField] private int shield = 15;
+        [SerializeField] private int minAttackDamage = 1;
+        [SerializeField] private int maxAttackDamage = 3;
+        [SerializeField] private float attackRate = 0.5f;
+        [SerializeField] private float attackDistance = 0.5f;
 
-        public float Pv { get => pv; }
-        public float Shield { get => shield; }
-        public float Damage { get => damage; }
+        public int Pv { get => pv; }
+        public int Shield { get => shield; }
         public string DisplayName { get => displayName; }
         public GameObject Prefab { get => prefab; }
+        public int MinAttackDamage { get => minAttackDamage;}
+        public int MaxAttackDamage { get => maxAttackDamage;}
+        public float AttackRate { get => attackRate;}
+        public float AttackDistance { get => attackDistance; }
     }
 }

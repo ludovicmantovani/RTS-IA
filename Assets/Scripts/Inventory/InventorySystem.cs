@@ -12,8 +12,25 @@ namespace Inventory.Inventory
         [SerializeField] private string oldMaterialName = "";
 
         private List<Unit> _units = new List<Unit>();
+        private Player _player;
 
         public List<Unit> Units { get => _units; }
+
+        public bool isMe;
+        public static InventorySystem me;
+
+        private void Awake()
+        {
+            if (isMe)
+            {
+                me = this;
+            }
+        }
+
+        private void Start()
+        {
+            _player = GetComponent<Player>();
+        }
 
         public bool IsMyUnit(Unit unit)
         {
@@ -41,7 +58,9 @@ namespace Inventory.Inventory
                 targetPosition.y,
                 targetPosition.z));
             }
-            AddUnit(goInstance.GetComponent<Unit>());
+            Unit unitInstance = goInstance.GetComponent<Unit>();
+            unitInstance.SetPlayer(_player);
+            AddUnit(unitInstance);
         }
 
         public bool RemoveUnit(Unit oldUnit)
@@ -62,7 +81,7 @@ namespace Inventory.Inventory
                 {
                     if (materials[i].name.Contains(oldMaterialName))
                     {
-                        materials[i].color = GetComponent<Player>().PlayerColor;
+                        materials[i].color = _player.PlayerColor;
                     }
                 }
                 obj.GetComponent<Renderer>().materials = materials;
