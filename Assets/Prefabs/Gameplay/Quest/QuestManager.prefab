@@ -186,7 +186,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   quests:
   - {fileID: 11400000, guid: b446772d41071f046895198c4f433744, type: 2}
-  - {fileID: 11400000, guid: 415660f39fd8ae44d94a55afd0736460, type: 2}
+  - {fileID: 11400000, guid: 4ee35fd1fd73d0649bf4490f07added0, type: 2}
   - {fileID: 11400000, guid: 799f80f2dd3b270469c7e794bbb8fb6d, type: 2}
   giveAtStart: 1
 --- !u!1 &2362014334544255166
