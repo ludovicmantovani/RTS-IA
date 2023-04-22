@@ -37,6 +37,7 @@ public class Unit : MonoBehaviour
     private NavMeshAgent _navAgent = null;
 
     public UnitState State { get => _state; set => _state = value; }
+    public Player Player { get => _player;}
 
     [System.Serializable]
     public class StateChangeEvent : UnityEvent<UnitState> { }

@@ -11,7 +11,7 @@ namespace Inventory.Inventory
         [SerializeField] private Transform unitsParent;
         [SerializeField] private string oldMaterialName = "";
 
-        private List<Unit> _units = new List<Unit>();
+        [SerializeField] private List<Unit> _units = new List<Unit>();
         private Player _player;
 
         public List<Unit> Units { get => _units; }
@@ -39,6 +39,7 @@ namespace Inventory.Inventory
 
         public void AddUnit(Unit unit)
         {
+            if (_player != null) unit.SetPlayer(_player);
             _units.Add(unit);
             ReplaceMaterialRecursively(unit.gameObject);
         }
@@ -58,9 +59,7 @@ namespace Inventory.Inventory
                 targetPosition.y,
                 targetPosition.z));
             }
-            Unit unitInstance = goInstance.GetComponent<Unit>();
-            unitInstance.SetPlayer(_player);
-            AddUnit(unitInstance);
+            AddUnit(goInstance.GetComponent<Unit>());
         }
 
         public bool RemoveUnit(Unit oldUnit)

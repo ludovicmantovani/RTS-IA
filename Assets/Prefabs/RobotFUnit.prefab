@@ -97,12 +97,24 @@ MonoBehaviour:
   _minAttackDamage: 1
   _maxAttackDamage: 3
   _attackRate: 0.5
-  _attackDistance: 1.5
+  _attackDistance: 3
   bar: {fileID: 7292037681747009387}
   _player: {fileID: 0}
   onStateChange:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6640286174206265892}
+        m_TargetAssemblyTypeName: UnitAnim, Assembly-CSharp
+        m_MethodName: OnStateChange
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &6640286174206265892
 MonoBehaviour:
   m_ObjectHideFlags: 0
