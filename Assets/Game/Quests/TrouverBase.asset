@@ -20,6 +20,6 @@ MonoBehaviour:
       pouvez regarder la minimap pour vous localiser sur la carte."
   rewards:
   - number: 1
-    unitTemplate: {fileID: 11400000, guid: 7ea5449815b49e043a7ab8696182f83f, type: 2}
+    unitTemplate: {fileID: 11400000, guid: 74428184b518ae1468919d7404765148, type: 2}
     spawnPoint: {x: 21, y: 0, z: 48}
   canGiveRewards: 1

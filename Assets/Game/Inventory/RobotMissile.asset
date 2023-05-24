@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 266c6ea5d6a2d55438860e844cdd625f, type: 3}
+  m_Name: RobotMissile
+  m_EditorClassIdentifier: 
+  displayName: Robot missile
+  prefab: {fileID: 2203917820263389402, guid: d9ec3d815973554488d44c1fbf0ecfc6, type: 3}
+  pv: 100
+  shield: 100
+  minAttackDamage: 1
+  maxAttackDamage: 3
+  attackRate: 0.5
+  attackDistance: 0.5
