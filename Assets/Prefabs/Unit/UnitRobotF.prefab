@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 3934672445646348052}
   - component: {fileID: 1674794045529692239}
   m_Layer: 6
-  m_Name: RobotFUnit
+  m_Name: UnitRobotF
   m_TagString: Unit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
