@@ -124,14 +124,14 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3460712519376764428}
   serializedVersion: 8
-  lengthInSec: 5
+  lengthInSec: 9
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 1
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
@@ -4990,6 +4990,8 @@ GameObject:
   - component: {fileID: 4002665214109133957}
   - component: {fileID: 8715123087161964194}
   - component: {fileID: 9140134088265583829}
+  - component: {fileID: 478104731488495192}
+  - component: {fileID: 8078903390077309766}
   m_Layer: 0
   m_Name: Mine
   m_TagString: Untagged
@@ -5025,14 +5027,14 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4379612523204834879}
   serializedVersion: 8
-  lengthInSec: 5
+  lengthInSec: 9
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 1
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
@@ -9796,6 +9798,41 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &478104731488495192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4379612523204834879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b59518b04ce6524383ab9c1b848d234, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particleLeft: {fileID: 8715123087161964194}
+  particleRight: {fileID: 3460712519376764427}
+--- !u!95 &8078903390077309766
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4379612523204834879}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b05bbbce57551164f933b88e62ef073e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &4858092097968716948
 GameObject:
   m_ObjectHideFlags: 0
