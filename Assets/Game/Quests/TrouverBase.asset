@@ -21,5 +21,5 @@ MonoBehaviour:
   rewards:
   - number: 1
     unitTemplate: {fileID: 11400000, guid: 7508e7daf157d2c41a1726b27f3fbe3d, type: 2}
-    spawnPoint: {x: 21, y: 0, z: 48}
+    spawnPoint: {x: 29.349934, y: -0.1, z: 48.038544}
   canGiveRewards: 1

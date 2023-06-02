@@ -4,17 +4,30 @@ using UnityEngine;
 
 public class Unfog : MonoBehaviour
 {
+    [SerializeField] private bool onStart = true;
+    [SerializeField] private bool onUpdate = false;
+    [SerializeField] private int radius = 1000;
+    [SerializeField] private float _timeLaps = 1f;
+
     private FogOfWar _fogOfWar;
-    // Start is called before the first frame update
+    private float _lastTime = 0f;
+
     void Start()
     {
         _fogOfWar = FogOfWar.instance;
-        _fogOfWar.UnhideUnit(transform, 1000);
+        _lastTime = Time.time;
+        if (onStart)
+        {
+            _fogOfWar.UnhideUnit(transform, radius);
+        }
     }
 
-    // Update is called once per frame
     void Update()
     {
-        _fogOfWar.UnhideUnit(transform, 1000);
+        if (onUpdate && Time.time >= _lastTime + _timeLaps)
+        {
+            _fogOfWar.UnhideUnit(transform, radius);
+            _lastTime = Time.time;
+        }
     }
 }

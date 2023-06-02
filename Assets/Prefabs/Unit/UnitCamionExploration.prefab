@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 6640286174206265892}
   - component: {fileID: 3934672445646348052}
   - component: {fileID: 1674794045529692239}
+  - component: {fileID: 4066573015964012150}
+  - component: {fileID: 3769323693455902416}
   m_Layer: 6
   m_Name: UnitCamionExploration
   m_TagString: Unit
@@ -160,6 +162,30 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &4066573015964012150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2203917820263389402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 685ba6db9c8a30645a01d62886274756, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onStart: 0
+  onUpdate: 1
+  radius: 100
+  _timeLaps: 0.5
+--- !u!33 &3769323693455902416
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2203917820263389402}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &2203917821747741709
 GameObject:
   m_ObjectHideFlags: 0
