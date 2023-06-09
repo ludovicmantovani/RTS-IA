@@ -1,4 +1,5 @@
 using Inventory.Inventory;
+using System.Collections;
 using UnityEngine;
 
 public class UnitCommander : MonoBehaviour
@@ -27,6 +28,7 @@ public class UnitCommander : MonoBehaviour
             {
                 if (hit.collider.CompareTag("Ground"))
                 {
+                    StartCoroutine(ShowDestinationMark(hit.point));
                     UnitsMoveToPosition(hit.point, selectedUnits);
                 }
                 else if (hit.collider.CompareTag("Unit"))
@@ -39,6 +41,14 @@ public class UnitCommander : MonoBehaviour
                 }
             }
         }
+    }
+
+    IEnumerator ShowDestinationMark(Vector3 point)
+    {
+        GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+        sphere.transform.position = new Vector3(point.x, point.y, point.z);
+        Destroy(sphere, 2f);
+        yield return null;
     }
 
     private void UnitsMoveToPosition(Vector3 movePos, Unit[] units)
