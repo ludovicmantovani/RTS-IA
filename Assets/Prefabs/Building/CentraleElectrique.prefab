@@ -4877,6 +4877,8 @@ GameObject:
   - component: {fileID: 6785701515330305232}
   - component: {fileID: 6785701515330305239}
   - component: {fileID: 6785701515330305238}
+  - component: {fileID: 7700470195870100378}
+  - component: {fileID: -6208836486633491472}
   m_Layer: 0
   m_Name: CentraleElectrique
   m_TagString: Untagged
@@ -4949,7 +4951,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 583924035892110156}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 685ba6db9c8a30645a01d62886274756, type: 3}
   m_Name: 
@@ -4958,6 +4960,39 @@ MonoBehaviour:
   onUpdate: 1
   radius: 100
   _timeLaps: 1
+--- !u!114 &7700470195870100378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 583924035892110156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 859eea34ae617284082bd4124ad729e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  marge: 0.1
+--- !u!114 &-6208836486633491472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 583924035892110156}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a43834c07758d047a8a625b01c90055, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _GM: {fileID: 0}
+  _datas:
+    name: 
+    prefab: {fileID: 0}
+    tiberiumCost: 0
+    energyGain: 0
+    energyCost: 0
+    healthPoint: 0
 --- !u!1 &2260631104273308211
 GameObject:
   m_ObjectHideFlags: 0
