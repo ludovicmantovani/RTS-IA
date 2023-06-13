@@ -19,13 +19,11 @@ public class BlueprintManager : MonoBehaviour
     #endregion
 
     #region Built in Methods
-    // Start is called before the first frame update
     void Start()
     {
         _fog = FogOfWar.instance;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if(_blueprintGO){     

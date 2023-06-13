@@ -135,7 +135,13 @@ public class Unit : MonoBehaviour
 
     private void Die()
     {
-        _player.GetComponent<InventorySystem>().RemoveUnit(this);
+        InventorySystem inventorySystem = _player.GetComponent<InventorySystem>();
+        QuestCompletion questCompletion = null;
+        if (!inventorySystem.isMe && TryGetComponent<QuestCompletion>(out questCompletion))
+        {
+            questCompletion.CompleteObjective();
+        }
+        inventorySystem.RemoveUnit(this);
         Destroy(gameObject);
     }
 

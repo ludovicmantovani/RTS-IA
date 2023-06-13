@@ -5,7 +5,7 @@ using UnityEngine;
 public class Building : MonoBehaviour
 {
     #region Variables
-    public GameManager _GM;
+    public RessourcesManager _ressourcesManager = null;
     public BuildingDatas _datas;
 
     public BuildingDatas Datas{
@@ -26,27 +26,20 @@ public class Building : MonoBehaviour
         
     }
 
-    public virtual void OnEnable(){        
-        _GM = GameManager.instance;
-        
-        CostTiberium();
-        PlayPlacementAnimation();
-        PlayPlacementSound();
+    public virtual void OnEnable(){
+        _ressourcesManager = RessourcesManager.instance;
+        Cost();
         SetParameters();
     }
     #endregion
 
     #region Custom Methods
-    void CostTiberium(){
-        Debug.Log("C CHER LOL");
-    }
-
-    void PlayPlacementAnimation(){
-
-    }
-
-    void PlayPlacementSound(){
-
+    void Cost(){
+        if (_ressourcesManager != null)
+        {
+            _ressourcesManager.CurrentMetal -= _datas.MetalCost;
+            _ressourcesManager.CurrentEnergy -= _datas.EnergyCost;
+        }
     }
 
     void SetParameters(){

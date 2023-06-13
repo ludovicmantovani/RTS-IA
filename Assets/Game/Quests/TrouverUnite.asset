@@ -20,8 +20,8 @@ MonoBehaviour:
     description: "Une fois s\xE9l\xE9ctionn\xE9e, d\xE9placez votre unit\xE9 par
       un clic droit sur le terrain."
   - reference: TrouverGroupeUnit
-    description: Approchez-vous du groupe de robots fusillers pour les faires passer
-      sous vos ordres
+    description: Cherchez et approchez-vous du groupe de robots fusillers au Nord
+      pour les faire passer sous vos ordres
   rewards:
   - number: 4
     unitTemplate: {fileID: 11400000, guid: 7ea5449815b49e043a7ab8696182f83f, type: 2}

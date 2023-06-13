@@ -12,8 +12,15 @@ namespace Gameplay.Quests
         [SerializeField] private InventorySystem inventory = null;
         [SerializeField] private QuestTooltipUI questTooltipUI = null;
         private List<QuestStatus> _statuses = new List<QuestStatus>();
+        private RessourcesManager _ressourcesManager = null;
 
         public event Action onUpdate;
+
+
+        private void Start()
+        {
+            _ressourcesManager = RessourcesManager.instance;
+        }
 
         public void AddQuest(Quest quest)
         {
@@ -72,12 +79,24 @@ namespace Gameplay.Quests
 
         private void GiveReward(Quest quest)
         {
+            print(quest.GetTitle());
             if (quest.CanGiveRewards == false) return;
             foreach (Quest.Reward reward in quest.GetRewards())
             {
-                for (int i = 0; i < reward.number; i++)
+                if (reward.unitTemplate != null)
                 {
-                    inventory.AddUnit(reward.unitTemplate, reward.spawnPoint);
+                    for (int i = 0; i < reward.number; i++)
+                    {
+                        inventory.AddUnit(reward.unitTemplate, reward.spawnPoint);
+                    }
+                }
+                if (reward.energy)
+                {
+                    _ressourcesManager.CurrentEnergy += reward.number;
+                }
+                if (reward.metal)
+                {
+                    _ressourcesManager.CurrentMetal += reward.number;
                 }
             }
         }

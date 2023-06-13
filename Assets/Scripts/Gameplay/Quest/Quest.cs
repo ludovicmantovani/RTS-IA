@@ -22,6 +22,8 @@ namespace Gameplay.Quests
             [Min(1)]
             public int number;
             public UnitTemplate unitTemplate;
+            public bool energy = false;
+            public bool metal = false;
             public Vector3 spawnPoint;
         }
 

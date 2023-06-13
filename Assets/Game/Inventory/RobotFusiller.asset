@@ -16,4 +16,9 @@ MonoBehaviour:
   prefab: {fileID: 2203917820263389402, guid: bda25eb0d82bb7743844566a34aada2c, type: 3}
   pv: 100
   shield: 100
-  damage: 10
+  minAttackDamage: 1
+  maxAttackDamage: 3
+  attackRate: 0.5
+  attackDistance: 0.5
+  energyCost: 3
+  metalCost: 3

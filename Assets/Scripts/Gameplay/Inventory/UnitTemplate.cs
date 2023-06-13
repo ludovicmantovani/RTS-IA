@@ -15,6 +15,8 @@ namespace Inventory.Item
         [SerializeField] private int maxAttackDamage = 3;
         [SerializeField] private float attackRate = 0.5f;
         [SerializeField] private float attackDistance = 0.5f;
+        [SerializeField] private int energyCost = 1;
+        [SerializeField] private int metalCost = 1;
 
         public int Pv { get => pv; }
         public int Shield { get => shield; }
@@ -24,5 +26,7 @@ namespace Inventory.Item
         public int MaxAttackDamage { get => maxAttackDamage;}
         public float AttackRate { get => attackRate;}
         public float AttackDistance { get => attackDistance; }
+        public int EnergyCost { get => energyCost; }
+        public int MetalCost { get => metalCost; }
     }
 }

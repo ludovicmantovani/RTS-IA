@@ -7,15 +7,14 @@ public class BuildingDatas
 {
     [SerializeField] private string name;
     [SerializeField] private GameObject prefab;
-    [SerializeField] private int tiberiumCost;
-    [SerializeField] private int energyGain;
+    [SerializeField] private float energyGainTimer;
     [SerializeField] private int energyCost;
-    [SerializeField] private int healthPoint;
+    [SerializeField] private int metalCost;
 
     public string Name => name;
     public GameObject Prefab => prefab;
-    public int TiberiumCost => tiberiumCost;
-    public int EnergyGain => energyGain;
+    public int MetalCost => metalCost;
+    public float EnergyGainTimer => energyGainTimer;
     public int EnergyCost => energyCost;
-    public int HealthPoint => healthPoint;
+
 }

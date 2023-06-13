@@ -5,6 +5,8 @@ using UnityEngine;
 public class Generator : Building
 {
     #region Variables
+    private bool _gainEnergy = false;
+    private float _lastTime = 0f;
     #endregion
 
     #region Built in Methods
@@ -15,20 +17,20 @@ public class Generator : Building
 
     void Update()
     {
-        
+        if (_gainEnergy && Time.time > _lastTime + _datas.EnergyGainTimer)
+        {
+            _lastTime = Time.time;
+            _ressourcesManager.CurrentEnergy += 1;
+        }
     }
 
     public override void OnEnable(){
         base.OnEnable();
 
-        GainEnergy();
+        _gainEnergy = true;
     }
     #endregion
 
     #region Custom Methods
-    void GainEnergy(){
-        Debug.Log(_datas.EnergyGain);
-        _GM.AddEnergyDispo(_datas.EnergyGain);
-    }
     #endregion
 }

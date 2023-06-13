@@ -22,6 +22,16 @@ public class SetRessourcesText : MonoBehaviour
     {
 
     }
+
+    private void OnEnable()
+    {
+        RessourcesManager.OnRessourcesUpdate += SetText;
+    }
+
+    private void OnDisable()
+    {
+        RessourcesManager.OnRessourcesUpdate -= SetText;
+    }
     #endregion
 
     #region Custom Methods

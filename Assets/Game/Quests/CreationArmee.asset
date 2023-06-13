@@ -10,18 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 98fd486f1a299554e97dfd02beef05fc, type: 3}
-  m_Name: Combattre
+  m_Name: CreationArmee
   m_EditorClassIdentifier: 
-  titre: Combattre
+  titre: "Cr\xE9er une arm\xE9e"
   objectives:
-  - reference: Tuer
-    description: "Selectionnez toutes vos troupes en cr\xE9ant une boite de s\xE9l\xE9ction
-      avec click + drag de la souris.\nAttaquez l'ennemi \xE0 l'Est de votre position
-      par un clic droit sur ce dernier."
+  - reference: 
+    description: 
   rewards:
-  - number: 3
-    unitTemplate: {fileID: 0}
+  - number: 0
+    unitTemplate: {fileID: 11400000, guid: 74428184b518ae1468919d7404765148, type: 2}
     energy: 0
-    metal: 1
+    metal: 0
     spawnPoint: {x: 0, y: 0, z: 0}
   canGiveRewards: 1

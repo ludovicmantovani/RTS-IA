@@ -7,7 +7,7 @@ public class RessourcesManager : MonoBehaviour
 {
     #region Variables
     private int _currentEnergy = 0;
-    private int _currentMetal = 0;
+    private int _currentMetal = 50;
     public static RessourcesManager instance;
     public static event Action OnRessourcesUpdate;
 

@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 266c6ea5d6a2d55438860e844cdd625f, type: 3}
-  m_Name: RobotMissile
+  m_Name: CamionExtracteur
   m_EditorClassIdentifier: 
-  displayName: Robot missile
-  prefab: {fileID: 2203917820263389402, guid: d9ec3d815973554488d44c1fbf0ecfc6, type: 3}
-  pv: 100
-  shield: 100
-  minAttackDamage: 1
-  maxAttackDamage: 3
-  attackRate: 0.5
-  attackDistance: 0.5
-  energyCost: 3
-  metalCost: 3
+  displayName: "Unit\xE9 d'extraction"
+  prefab: {fileID: 2203917820263389402, guid: 5d4843a92bd2dd140b5d20eb89da9b0f, type: 3}
+  pv: 50
+  shield: 0
+  minAttackDamage: 0
+  maxAttackDamage: 0
+  attackRate: 0
+  attackDistance: 0
+  energyCost: 1
+  metalCost: 1

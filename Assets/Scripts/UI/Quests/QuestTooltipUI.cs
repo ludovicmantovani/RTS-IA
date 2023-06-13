@@ -18,10 +18,10 @@ namespace Gameplay.UI.Quests
         {
             Quest quest = status.GetQuest();
             title.text = quest.GetTitle();
-            
+
             foreach (Transform item in objectiveContainer)
                 Destroy(item.gameObject);
-            
+
             foreach (Quest.Objective objective in quest.GetObjectives())
             {
                 GameObject prefab = objectiveIncompletePrefab;
@@ -31,7 +31,7 @@ namespace Gameplay.UI.Quests
                 TextMeshProUGUI objectiveText = objectiveInstance.GetComponentInChildren<TextMeshProUGUI>();
                 objectiveText.text = objective.description;
             }
-            
+
             rewardText.text = GetRewardText(quest);
         }
 
@@ -44,7 +44,19 @@ namespace Gameplay.UI.Quests
                     rewardText += ", ";
                 if (reward.number > 1)
                     rewardText += reward.number + " ";
-                rewardText += reward.unitTemplate.DisplayName;
+
+                if (reward.unitTemplate)
+                {
+                    rewardText += reward.unitTemplate.DisplayName;
+                }
+                if (reward.energy)
+                {
+                    rewardText += "Energie";
+                }
+                if (reward.metal)
+                {
+                    rewardText += "Metal";
+                }
             }
             return rewardText;
         }
