@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     #region Variables
-    //[SerializeField] private int numPlayer = 0;
+    [SerializeField] private int numPlayer = 0;
     [SerializeField] private GameObject player;
 
     private int _energyMax;
@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
         //_UI = UIManager.instance;
 
         //player.transform.position = new Vector3(_spawners[numPlayer].transform.position.x, 0, _spawners[numPlayer].transform.position.z);
-        //StartCoroutine(_spawners[numPlayer].UnhideBase());
+        StartCoroutine(_spawners[numPlayer].UnhideBase());
     }
 
     void Update()

@@ -2,32 +2,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Unfog : MonoBehaviour
+public class UnFog : MonoBehaviour
 {
-    [SerializeField] private bool onStart = true;
-    [SerializeField] private bool onUpdate = false;
-    [SerializeField] private int radius = 1000;
-    [SerializeField] private float _timeLaps = 1f;
+    #region Variables
+    [SerializeField] private int radius = 45;
+    [SerializeField] private float freq = 0.5f;
 
-    private FogOfWar _fogOfWar;
     private float _lastTime = 0f;
+    private FogOfWar _fogOfWar = null;
+    #endregion
 
+    #region Built in Methods
     void Start()
     {
-        _fogOfWar = FogOfWar.instance;
         _lastTime = Time.time;
-        if (onStart)
-        {
-            _fogOfWar.UnhideUnit(transform, radius);
-        }
+        _fogOfWar = FogOfWar.instance;
     }
 
     void Update()
     {
-        if (onUpdate && Time.time >= _lastTime + _timeLaps)
+        if (Time.time > _lastTime + freq)
         {
-            _fogOfWar.UnhideUnit(transform, radius);
+            if (_fogOfWar) _fogOfWar.UnhideUnit(transform, radius);
             _lastTime = Time.time;
         }
     }
+    #endregion
+
+    #region Custom Methods
+    #endregion
 }

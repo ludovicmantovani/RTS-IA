@@ -15196,7 +15196,9 @@ GameObject:
   - component: {fileID: 3462879178849295337}
   - component: {fileID: 3462879178849295342}
   - component: {fileID: 3462879178849295343}
-  - component: {fileID: 3462879178849295340}
+  - component: {fileID: 2731581826075203196}
+  - component: {fileID: -5289019754469217937}
+  - component: {fileID: 769296154423931711}
   m_Layer: 0
   m_Name: Fonderie
   m_TagString: Untagged
@@ -15268,7 +15270,7 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 1.75, z: 0}
   m_TimeToStationary: 0.5
---- !u!114 &3462879178849295340
+--- !u!114 &2731581826075203196
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -15277,10 +15279,40 @@ MonoBehaviour:
   m_GameObject: {fileID: 8584821003700602539}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 685ba6db9c8a30645a01d62886274756, type: 3}
+  m_Script: {fileID: 11500000, guid: f3465aafed295714088fbed8f7787501, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onStart: 0
-  onUpdate: 1
-  radius: 100
-  _timeLaps: 1
+  defoggerRadius: 30
+--- !u!114 &-5289019754469217937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8584821003700602539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cad07dba4d3675d44aaa3e9df69fa133, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _GM: {fileID: 0}
+  _datas:
+    name: 
+    prefab: {fileID: 0}
+    tiberiumCost: 0
+    energyGain: 0
+    energyCost: 0
+    healthPoint: 0
+--- !u!114 &769296154423931711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8584821003700602539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 859eea34ae617284082bd4124ad729e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  marge: 0.1

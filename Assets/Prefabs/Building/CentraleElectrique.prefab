@@ -4876,9 +4876,9 @@ GameObject:
   - component: {fileID: 6785701515330305233}
   - component: {fileID: 6785701515330305232}
   - component: {fileID: 6785701515330305239}
-  - component: {fileID: 6785701515330305238}
   - component: {fileID: 7700470195870100378}
   - component: {fileID: -6208836486633491472}
+  - component: {fileID: 3810387946248455735}
   m_Layer: 0
   m_Name: CentraleElectrique
   m_TagString: Untagged
@@ -4944,22 +4944,6 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 2, z: 0}
   m_TimeToStationary: 0.5
---- !u!114 &6785701515330305238
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 583924035892110156}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 685ba6db9c8a30645a01d62886274756, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  onStart: 0
-  onUpdate: 1
-  radius: 100
-  _timeLaps: 1
 --- !u!114 &7700470195870100378
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4993,6 +4977,19 @@ MonoBehaviour:
     energyGain: 0
     energyCost: 0
     healthPoint: 0
+--- !u!114 &3810387946248455735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 583924035892110156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3465aafed295714088fbed8f7787501, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defoggerRadius: 30
 --- !u!1 &2260631104273308211
 GameObject:
   m_ObjectHideFlags: 0

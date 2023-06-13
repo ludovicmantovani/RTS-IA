@@ -171,13 +171,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2203917820263389402}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 685ba6db9c8a30645a01d62886274756, type: 3}
+  m_Script: {fileID: 11500000, guid: b988355a54dd14048af331d699332fc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onStart: 0
-  onUpdate: 1
-  radius: 100
-  _timeLaps: 0.5
+  radius: 45
+  freq: 0.5
 --- !u!33 &3769323693455902416
 MeshFilter:
   m_ObjectHideFlags: 0
